@@ -1,0 +1,16 @@
+- defaults:
+    link:
+        relink: true
+
+- clean: ['~'] 
+
+- link:
+    ~/.zshenv: zsh/.zshenv
+    ~/.vim: vim
+    ~/.vimrc: vimrc
+    ~/.Xresources: Xresources
+    ~/.Xresources.d: Xresources.d
+    ~/.xmonad: xmonad
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]

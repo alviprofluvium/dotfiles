@@ -1,0 +1,1 @@
+/home/diarrea/code/dotfiles/zsh/.zprezto/runcoms/zshenv

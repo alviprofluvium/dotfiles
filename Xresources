@@ -1,0 +1,14 @@
+#include "/home/diarrea/.Xresources.d/solarized.dark"
+
+Xft.hinting: 1
+Xft.antialias: 1
+
+! Fonts
+#define fonts \
+    xft:Inconsolata\\-g for Powerline:size=11, \
+    xft:Hack:size=11
+URxvt.font: fonts
+URxvt.boldFont: fonts
+
+URxvt.scrollBar: false
+
