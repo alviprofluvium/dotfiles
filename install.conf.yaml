@@ -6,11 +6,11 @@
 
 - link:
     ~/.zshenv: zsh/.zshenv
-    ~/.vim: vim
     ~/.vimrc: vimrc
     ~/.Xresources: Xresources
     ~/.Xresources.d: Xresources.d
     ~/.xmonad: xmonad
+    ~/.gitignore_global: gitignore_global
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
