@@ -7,15 +7,21 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'sjl/tslime.vim'
+
 
 call vundle#end()
 filetype plugin indent on
 "End Vundle
 
 "Configurations
+set noshowmode
+set wildmenu
+set hlsearch
 "Colors
 syntax enable
 set background=dark
@@ -30,9 +36,16 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-"Airline
+"Lightline
 set laststatus=2
-let g:airline_powerline_fonts = 1
+let g:lightline = {
+    \ 'colorscheme': 'solarized',
+    \ 'component': {
+    \   'readonly': '%{&readonly?"":""}',
+    \ },
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '', 'right': '' }
+    \ }
 
 "Syntastic
 set statusline+=%#warningmsg#
@@ -43,3 +56,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"Tslime
+let g:tslime_normal_mapping = '<leader>t'
+let g:tslime_visual_mapping = '<leader>t'
+let g:tslime_vars_mapping = '<leader>T'
+let g:tslime_ensure_trailing_newlines = 1
