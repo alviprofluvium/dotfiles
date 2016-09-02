@@ -5,6 +5,10 @@ import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Magnifier
 import XMonad.Layout.LimitWindows
 import XMonad.Layout.FixedColumn
+--Multihead
+import qualified XMonad.StackSet as W
+import XMonad.Util.EZConfig
+import XMonad.Actions.CycleWS
 
 --Workspaces
 myWorkspaces = ["1:web","2:code"] ++ map show [3..9]
@@ -21,6 +25,15 @@ myBar = "xmobar"
 
 --Terminal
 myTerminal = "urxvt"
+
+--CustomKeys
+myKeys = [((m .|. mod4Mask, k), windows $ f i)
+            | (i, k) <- zip myWorkspaces [xK_1 .. xK_9]
+            , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+        ++
+        [((mod4Mask, xK_u), prevScreen)
+        ,((mod4Mask .|. shiftMask, xK_u), shiftPrevScreen)
+        ,((mod4Mask, xK_i), swapPrevScreen)]
         
 --Configuration
 myConfig = defaultConfig
@@ -28,7 +41,7 @@ myConfig = defaultConfig
     , modMask     = mod4Mask
     , workspaces  = myWorkspaces
     , layoutHook  = myLayout
-    }
+    } `additionalKeys` myKeys
 
 --Main function
 main = xmonad =<< xmobar myConfig
