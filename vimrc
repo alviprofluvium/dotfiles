@@ -17,6 +17,7 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
+Plugin 'junegunn/fzf.vim'
 
 "Scheme Plugins
 Plugin 'vim-scripts/paredit.vim'
@@ -35,6 +36,8 @@ filetype plugin indent on
 set noshowmode
 set wildmenu
 set hlsearch
+set tw=80
+
 "Colors
 syntax enable
 set background=dark
@@ -44,10 +47,20 @@ set number
 set relativenumber
 
 "Indentation
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
+set smartcase
+set smarttab
+set smartindent
+set autoindent
+
+set incsearch
+set completeopt=menuone,menu,longest
+
+set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
+set wildmode=longest,list,full
+set wildmenu
 
 "Lightline
 set laststatus=2

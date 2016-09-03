@@ -34,6 +34,7 @@ myKeys = [((m .|. mod4Mask, k), windows $ f i)
         [((mod4Mask, xK_u), prevScreen)
         ,((mod4Mask .|. shiftMask, xK_u), shiftPrevScreen)
         ,((mod4Mask, xK_i), swapPrevScreen)]
+
         
 --Configuration
 myConfig = defaultConfig
