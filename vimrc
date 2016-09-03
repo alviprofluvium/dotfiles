@@ -87,15 +87,12 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 "Supertab
-let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
-
-if has("gui_running")
-    imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-else " no gui
-    if has("unix")
-        inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-    endif
-endif
+let g:SuperTabDefaultCompletionType = "context"
+autocmd FileType * 
+      \if &omnifunc != '' |
+      \call SuperTabChain(&omnifunc, "<c-p>") |
+      \call SuperTabSetDefaultCompletionType("<c-x><c-o>") |
+      \endif
 
 "Tslime
 let g:tslime_normal_mapping = '<leader>t'
@@ -129,7 +126,7 @@ let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_patter = '\*ku\*'
+let g:neocomplete#lock_buffer_pattern = '\*ku\*'
 
 inoremap <expr><C-g> neocompete#undo_completion()
 inoremap <expr><C-g> neocompete#complete_common_string()
