@@ -17,6 +17,7 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
+Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
 "Scheme Plugins
@@ -123,6 +124,26 @@ vmap a= :Tabularize /=<CR>
 vmap a; :Tabularize /::<CR>
 vmap a- :Tabularize /-><CR>
 
+"Neocomplete
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_patter = '\*ku\*'
+
+inoremap <expr><C-g> neocompete#undo_completion()
+inoremap <expr><C-g> neocompete#complete_common_string()
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 
 "Niji
