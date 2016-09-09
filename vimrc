@@ -39,6 +39,11 @@ set wildmenu
 set hlsearch
 set tw=80
 
+"Swap file directory
+set backupdir^=~/.vim/backup_files//
+set directory^=~/.vim/swap_files//
+set undodir^=~/.vim/undo_files//
+
 "Colors
 syntax enable
 set background=dark
@@ -57,7 +62,7 @@ set smartindent
 set autoindent
 
 set incsearch
-set completeopt=menuone,menu,longest
+set completeopt=menuone,menu,preview
 
 set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
 set wildmode=longest,list,full
@@ -127,6 +132,7 @@ let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_pattern = '\*ku\*'
+let g:neocomplete#enable_auto_select = 1
 
 inoremap <expr><C-g> neocompete#undo_completion()
 inoremap <expr><C-g> neocompete#complete_common_string()
