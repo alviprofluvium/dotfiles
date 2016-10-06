@@ -33,6 +33,9 @@ call vundle#end()
 filetype plugin indent on
 "End Vundle
 
+"Remaps
+inoremap jj <ESC>
+
 "Configurations
 set noshowmode
 set wildmenu
